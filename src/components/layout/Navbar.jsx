@@ -184,6 +184,8 @@ function Navbar() {
                       <img
                         src={item.image}
                         alt={item.name}
+                        loading="lazy"
+                        decoding="async"
                         className="w-28 h-24 object-contain mb-3 transition-transform duration-300 hover:scale-105"
                       />
                       <span

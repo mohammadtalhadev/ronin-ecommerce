@@ -1,11 +1,33 @@
+import { useEffect, useRef, useState } from 'react'
 import { generationRonin } from '../../data/generationRonin'
 
 function GenerationRonin() {
+  const sectionRef = useRef(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return undefined
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '300px 0px' }
+    )
+
+    observer.observe(section)
+    return () => observer.disconnect()
+  }, [])
+
   // Doubled so the -50% marquee translate loops seamlessly.
   const doubledVideos = [...generationRonin, ...generationRonin]
 
   return (
-    <section data-reveal className="px-8 py-10 overflow-hidden">
+    <section ref={sectionRef} data-reveal className="px-8 py-10 overflow-hidden">
       <div className="relative flex items-center justify-center mb-8">
         {/* divider line behind the badge */}
         <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-px bg-slate-200" />
@@ -31,7 +53,8 @@ function GenerationRonin() {
               <video
                 src={person.video}
                 poster={person.thumbnail}
-                autoPlay
+                autoPlay={isVisible}
+                preload={isVisible ? 'metadata' : 'none'}
                 muted
                 loop
                 playsInline

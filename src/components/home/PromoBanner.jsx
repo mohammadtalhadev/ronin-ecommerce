@@ -6,6 +6,8 @@ function PromoBanner() {
       <img
         src={MiniBanner}
         alt="Pebble Limited Edition"
+        loading="lazy"
+        decoding="async"
         className="w-full h-auto object-cover rounded-3xl"
       />
 

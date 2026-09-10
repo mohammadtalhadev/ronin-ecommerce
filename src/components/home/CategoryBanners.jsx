@@ -10,6 +10,8 @@ function CategoryBanners() {
             <img
               src={banner.image}
               alt={banner.name}
+              loading="lazy"
+              decoding="async"
               className="w-full h-56 "
             />
             <Link

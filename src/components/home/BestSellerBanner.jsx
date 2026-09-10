@@ -32,6 +32,8 @@ function BestSellerBanner() {
         <img
           src={activeBanner.image}
           alt={`Promo ${currentIndex + 1}`}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover transition-opacity duration-500"
         />
 

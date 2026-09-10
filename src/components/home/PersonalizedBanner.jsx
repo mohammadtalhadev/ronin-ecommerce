@@ -8,6 +8,8 @@ function PersonalizedBanner() {
         <img
           src={PersonalizedImg}
           alt="Personalized Banner"
+          loading="lazy"
+          decoding="async"
           className="w-full h-auto object-cover rounded-3xl"
         />
 

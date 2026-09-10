@@ -57,6 +57,9 @@ function HeroCarousel() {
         key={slides[currentSlide].image}
         src={slides[currentSlide].image}
         alt={`Slide ${currentSlide + 1}`}
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
         className="w-full h-auto object-cover animate-slide-fade"
       />
 

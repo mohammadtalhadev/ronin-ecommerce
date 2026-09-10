@@ -13,6 +13,8 @@ function FeaturedLogos() {
             key={brand.id}
             src={brand.logo}
             alt={brand.name}
+            loading="lazy"
+            decoding="async"
             className="h-8 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition"
           />
         ))}
