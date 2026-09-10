@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function PersonalizedBanner() {
   return (
-    <section data-reveal className="px-8 py-6">
+    <section data-reveal className="px-3 py-3 sm:px-8 sm:py-6">
       <div className="relative rounded-3xl overflow-hidden bg-gray-100">
         <img
           src={PersonalizedImg}

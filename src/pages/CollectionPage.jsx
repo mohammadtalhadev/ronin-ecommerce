@@ -52,7 +52,7 @@ function CollectionPage() {
     <div className="bg-white">
       {/* Category hero banner with overlay text - navbar floats over it, like ronin.pk */}
       <div className="px-4 md:px-8">
-        <div className="relative rounded-3xl overflow-hidden h-[480px] bg-gradient-to-b from-gray-200 via-gray-100 to-black/90">
+        <div className="relative rounded-3xl overflow-hidden h-[280px] bg-gradient-to-b from-gray-200 via-gray-100 to-black/90 md:h-[480px]">
           <img
             src={`https://placehold.co/1600x600/2a2a2a/white?text=${encodeURIComponent(collectionTitle + ' Series')}`}
             alt={`${collectionTitle} collection banner`}
@@ -74,8 +74,8 @@ function CollectionPage() {
       </div>
 
       {/* Item count + sort row - right aligned like ronin.pk */}
-      <div className="flex items-center justify-end gap-6 px-4 md:px-8 py-6">
-        <span className="text-sm text-gray-500">{sortedProducts.length} items</span>
+      <div className="flex items-center justify-end gap-4 px-4 md:px-8 py-4 md:py-6">
+        <span className="text-xs text-gray-500 md:text-sm">{sortedProducts.length} items</span>
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
@@ -89,7 +89,7 @@ function CollectionPage() {
 
       {/* Product grid - reusing our existing ProductCard */}
       {sortedProducts.length > 0 ? (
-        <div data-reveal-group className="grid grid-cols-2 md:grid-cols-4 gap-5 px-4 md:px-8 pb-14">
+        <div data-reveal-group className="grid grid-cols-2 md:grid-cols-4 gap-3 px-4 md:px-8 pb-10 md:gap-5 md:pb-14">
           {sortedProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

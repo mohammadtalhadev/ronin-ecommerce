@@ -7,13 +7,13 @@ function BrandAmbassadors() {
 
   return (
     <section data-reveal className="overflow-hidden">
-      <div className="relative text-center mb-10 px-8 pt-12">
-        <h2 className="font-script text-6xl md:text-7xl lg:text-[46px] leading-tight bg-gradient-to-r from-indigo-600 via-purple-600 to-red-500 bg-clip-text text-transparent">
+      <div className="relative text-center mb-6 px-3 pt-6 sm:mb-10 sm:px-8 sm:pt-12">
+        <h2 className="font-script text-4xl leading-tight bg-gradient-to-r from-indigo-600 via-purple-600 to-red-500 bg-clip-text text-transparent sm:text-6xl md:text-7xl lg:text-[46px]">
           Brand Ambassadors
         </h2>
       </div>
 
-      <div className="pb-[60px] md:pb-[80px] overflow-hidden">
+      <div className="pb-10 overflow-hidden sm:pb-[60px] md:pb-[80px]">
         <div className="grid grid-flow-col auto-cols-[260px] grid-rows-2 gap-4 h-[420px] w-max animate-marquee">
           {doubledAmbassadors.map((person, index) => (
             <div

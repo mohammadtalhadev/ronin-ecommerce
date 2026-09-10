@@ -99,12 +99,12 @@ function ProductPage() {
   }
 
   return (
-    <div className="pt-18 bg-[#F0F0F0]">
-      <div ref={productSectionRef} className="px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 pb-8 items-start">
+    <div className="pt-14 bg-[#F0F0F0] md:pt-18">
+      <div ref={productSectionRef} className="px-3 py-4 grid grid-cols-1 gap-4 pb-4 items-start md:px-8 md:py-8 md:grid-cols-1 lg:grid-cols-2 md:gap-8 md:pb-8">
 
         {/* LEFT: Gallery */}
-        <div className="lg:sticky lg:top-28 rounded-[30px] bg-white p-7">
-          <div className="relative flex items-center justify-center min-h-[380px] md:min-h-[480px]">
+        <div className="lg:sticky lg:top-28 rounded-2xl bg-white p-4 md:rounded-[30px] md:p-7">
+          <div className="relative flex items-center justify-center min-h-[280px] md:min-h-[380px] lg:min-h-[480px]">
             <img
               key={imageIndex}
               src={product.image}
@@ -151,7 +151,7 @@ function ProductPage() {
 
         {/* RIGHT: Info card */}
         <div
-          className="flex flex-col items-start gap-3 rounded-[30px] bg-white p-7"
+          className="flex flex-col items-start gap-3 rounded-2xl bg-white p-4 md:rounded-[30px] md:p-7"
         >
           <div className="flex items-center flex-wrap gap-1.5 text-xs font-medium text-gray-500">
             <Link to="/" className="hover:underline">Home</Link>
@@ -167,19 +167,19 @@ function ProductPage() {
             <span className="text-slate-900">{product.name}</span>
           </div>
 
-          <h1 className="text-xl font-bold text-slate-900 uppercase">{product.name}</h1>
-          <p className="text-sm text-gray-500">{product.spec}</p>
+          <h1 className="text-lg font-bold text-slate-900 uppercase md:text-xl">{product.name}</h1>
+          <p className="text-xs text-gray-500 md:text-sm">{product.spec}</p>
 
           <hr className="w-full border-gray-200 my-2" />
 
           <div className="flex flex-wrap items-center justify-between w-full gap-3">
-            <div className="flex items-baseline gap-3">
-              <span className="text-2xl font-bold text-slate-900">Rs.{product.price.toLocaleString()}</span>
-              <span className="text-lg text-gray-400 line-through">Rs.{product.originalPrice.toLocaleString()}</span>
+            <div className="flex items-baseline gap-2 md:gap-3">
+              <span className="text-xl font-bold text-slate-900 md:text-2xl">Rs.{product.price.toLocaleString()}</span>
+              <span className="text-base text-gray-400 line-through md:text-lg">Rs.{product.originalPrice.toLocaleString()}</span>
             </div>
             <div className="flex items-center gap-1.5 text-sm text-gray-600">
-            <span className="text-yellow-500"><StarIcon className="w-5 h-5" /></span>
-            <span className="font-bold text-slate-900">{product.rating}</span>
+              <span className="text-yellow-500"><StarIcon className="w-4 h-4 md:w-5 md:h-5" /></span>
+              <span className="font-bold text-slate-900">{product.rating}</span>
               <span className="text-gray-400">({Math.round(product.rating * 20)})</span>
             </div>
           </div>
@@ -320,7 +320,7 @@ function ProductPage() {
 
       {/* Floating bottom add-to-cart bar */}
       <div
-        className={`fixed bottom-5 left-1/2 -translate-x-1/2 z-[70] w-[400px] max-w-[92%] transition-all duration-500 ${
+        className={`fixed bottom-3 left-1/2 -translate-x-1/2 z-[70] w-[92%] max-w-[400px] transition-all duration-500 md:bottom-5 md:w-[400px] ${
           showStickyBar ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0 pointer-events-none'
         }`}
       >
@@ -378,8 +378,8 @@ function ProductPage() {
               <tbody>
                 {specRows.map((row, i) => (
                   <tr key={i} className={i === specRows.length - 1 ? '' : 'border-b border-gray-200'}>
-                    <td className="py-3 pr-5 min-w-[150px] font-bold text-slate-800">{row.label}</td>
-                    <td className="py-3 text-gray-600">{row.value}</td>
+                    <td className="py-2 pr-3 min-w-[100px] text-xs font-bold text-slate-800 md:py-3 md:pr-5 md:min-w-[150px] md:text-sm">{row.label}</td>
+                    <td className="py-2 text-xs text-gray-600 md:py-3 md:text-sm">{row.value}</td>
                   </tr>
                 ))}
               </tbody>
@@ -407,7 +407,7 @@ function ProductPage() {
           <h2 className="md:col-span-3 text-xl font-bold text-slate-900">Reviews</h2>
           <div className="md:col-span-9 space-y-4">
             <div className="flex items-center gap-3">
-              <span className="text-4xl font-extrabold text-slate-900">{product.rating}</span>
+              <span className="text-2xl font-extrabold text-slate-900 md:text-4xl">{product.rating}</span>
               <div>
                 <div className="flex text-yellow-500">
                   {[1, 2, 3, 4, 5].map((star) => (
@@ -448,7 +448,7 @@ export default ProductPage
 
 function TabLinks({ tabs, activeTab, onSelect }) {
   return (
-    <div className="flex w-fit rounded-full bg-white/80 backdrop-blur-md border border-gray-200 p-1.5 gap-1 shadow-md">
+    <div className="flex w-fit max-w-full overflow-x-auto rounded-full bg-white/80 backdrop-blur-md border border-gray-200 p-1.5 gap-1 shadow-md [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       {tabs.map((tab) => {
         const isActive = activeTab === tab.id
         return (

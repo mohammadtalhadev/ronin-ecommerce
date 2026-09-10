@@ -12,17 +12,17 @@ function TrustBadges() {
   ]
 
   return (
-    <section data-reveal className="px-8 py-6">
-      <div className="bg-white rounded-full shadow flex items-center justify-between px-10 py-6 flex-wrap gap-6">
-        <h2 className="text-2xl font-extrabold bg-gradient-to-r from-indigo-600 via-purple-600 to-red-500 bg-clip-text text-transparent">
+    <section data-reveal className="px-3 py-4 sm:px-8 sm:py-6">
+      <div className="bg-white rounded-2xl shadow flex flex-col items-center gap-4 px-4 py-4 text-center sm:rounded-full sm:flex-row sm:justify-between sm:px-10 sm:py-6 sm:flex-wrap sm:gap-6 sm:text-left">
+        <h2 className="text-lg font-extrabold bg-gradient-to-r from-indigo-600 via-purple-600 to-red-500 bg-clip-text text-transparent sm:text-2xl">
           Exceptional Quality Delivered
         </h2>
 
-        <div className="flex items-center gap-10 flex-wrap">
+        <div className="flex items-center gap-6 flex-wrap justify-center sm:gap-10">
           {badges.map((badge, index) => (
-            <div key={index} className="flex items-center gap-3">
-              <img src={badge.image} alt={badge.title} className="h-14 w-14 object-contain" />
-              <div className="text-sm text-gray-600 leading-tight">
+            <div key={index} className="flex items-center gap-2 sm:gap-3">
+              <img src={badge.image} alt={badge.title} className="h-10 w-10 object-contain sm:h-14 sm:w-14" />
+              <div className="text-xs text-gray-600 leading-tight sm:text-sm">
                 <p>{badge.title}</p>
                 <p>{badge.subtitle}</p>
               </div>

@@ -26,22 +26,22 @@ function AccountLayout() {
   }
 
   return (
-    <div className="bg-[#F0F0F0] px-4 py-16 md:px-8">
+    <div className="bg-[#F0F0F0] px-3 py-12 md:px-4 md:py-16 lg:px-8">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-8 flex items-center gap-4">
-          <img src={RoninLogo} alt="Ronin" className="h-6 w-auto object-contain" />
+        <div className="mb-6 flex items-center gap-3 md:mb-8 md:gap-4">
+          <img src={RoninLogo} alt="Ronin" className="h-5 w-auto object-contain md:h-6" />
           <div className="hidden h-6 w-px bg-gray-300 md:block" />
           <div>
-            <h1 className="text-2xl font-bold text-slate-900">My Account</h1>
+            <h1 className="text-xl font-bold text-slate-900 md:text-2xl">My Account</h1>
             <p className="text-sm text-gray-500">
               Signed in as <span className="font-semibold text-slate-700">{user.email}</span>
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-[240px_1fr]">
+        <div className="grid grid-cols-1 gap-4 md:gap-6 md:grid-cols-[240px_1fr]">
           {/* Sidebar */}
-          <aside className="h-fit rounded-3xl bg-white p-4 shadow-lg">
+          <aside className="h-fit rounded-2xl bg-white p-3 shadow-lg md:rounded-3xl md:p-4">
             <div className="mb-3 flex items-center gap-3 rounded-2xl bg-gray-50 p-3">
               {user.avatar ? (
                 <img src={user.avatar} alt="" className="h-11 w-11 rounded-full object-cover" />
@@ -79,7 +79,7 @@ function AccountLayout() {
           </aside>
 
           {/* Content */}
-          <section className="rounded-3xl bg-white p-6 shadow-lg md:p-8">
+          <section className="rounded-2xl bg-white p-4 shadow-lg md:rounded-3xl md:p-6 lg:p-8">
             <Outlet />
           </section>
         </div>

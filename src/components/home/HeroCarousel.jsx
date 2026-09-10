@@ -11,94 +11,248 @@ function HeroCarousel() {
     {
       id: 1,
       image: SlideGlaze,
-      link: "/products/glaze-earbuds",
+      alt: 'Glaze earbuds promotion',
+      link: '/products/glaze-earbuds',
     },
     {
       id: 2,
       image: SlideLucid,
-      link: "/products/lucid-earbuds",
+      alt: 'Lucid earbuds promotion',
+      link: '/products/lucid-earbuds',
     },
     {
       id: 3,
       image: AtifAslam,
-      link: "/products/rap-headphone",
+      alt: 'Ronin headphones promotion featuring Atif Aslam',
+      link: '/products/rap-headphone',
     },
     {
       id: 4,
       image: MomentWatches,
-      link: "/products/moment-smart-watch",
+      alt: 'Moment smart watch promotion',
+      link: '/products/moment-smart-watch',
     },
-
   ]
 
   const [currentSlide, setCurrentSlide] = useState(0)
-  // Auto-advance pauses while hovering so users aren't yanked away mid-read.
   const [paused, setPaused] = useState(false)
 
-  // Timeout (not interval) so every slide change — manual or auto — gets a
-  // fresh full 5s before the next auto-advance.
+  const currentSlideData = slides[currentSlide]
+
   useEffect(() => {
-    if (paused) return
+    if (paused) {
+      return undefined
+    }
+
     const timer = setTimeout(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
+      setCurrentSlide((previousSlide) => {
+        return (previousSlide + 1) % slides.length
+      })
     }, 5000)
+
     return () => clearTimeout(timer)
   }, [paused, currentSlide, slides.length])
 
+  const goToPreviousSlide = () => {
+    setCurrentSlide((previousSlide) => {
+      return (previousSlide - 1 + slides.length) % slides.length
+    })
+  }
+
+  const goToNextSlide = () => {
+    setCurrentSlide((previousSlide) => {
+      return (previousSlide + 1) % slides.length
+    })
+  }
+
+  const goToSlide = (slideIndex) => {
+    setCurrentSlide(slideIndex)
+  }
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'ArrowLeft') {
+      goToPreviousSlide()
+    }
+
+    if (event.key === 'ArrowRight') {
+      goToNextSlide()
+    }
+  }
+
   return (
-    <div
-      className="relative px-6 group"
+    <section
+      className="group relative w-full px-3 pt-4 sm:px-4 sm:pt-5 md:px-6 md:pt-0"
+      aria-label="Featured products"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+      onKeyDown={handleKeyDown}
     >
-      {/* Keyed on the slide so a change remounts the img and replays the
-          fade-in — a soft crossfade-like transition instead of an abrupt swap. */}
-      <img
-        key={slides[currentSlide].image}
-        src={slides[currentSlide].image}
-        alt={`Slide ${currentSlide + 1}`}
-        loading="eager"
-        fetchPriority="high"
-        decoding="async"
-        className="w-full h-auto object-cover animate-slide-fade"
-      />
-
-      <Link
-        to={slides[currentSlide].link}
-        className="absolute inset-0 w-full h-full"
-        aria-label={`Shop slide ${currentSlide + 1}`}
-      />
-
-      {/* Left arrow */}
-      <button
-        onClick={() => setCurrentSlide((currentSlide - 1 + slides.length) % slides.length)}
-        className="absolute left-10 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold transition opacity-0 group-hover:opacity-100"
-        aria-label="Previous slide"
+      <div
+        className="
+          relative
+          w-full
+          overflow-hidden
+          rounded-xl
+          bg-slate-100
+          aspect-[4/5]
+          sm:aspect-[4/3]
+          md:aspect-[16/9]
+          lg:aspect-[21/9]
+        "
       >
-        <ChevronLeftIcon className="w-5 h-5 text-slate-900" />
-      </button>
+        {/* Current slide image */}
+        <img
+          key={currentSlideData.image}
+          src={currentSlideData.image}
+          alt={currentSlideData.alt}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          className="
+            absolute
+            inset-0
+            h-full
+            w-full
+            object-cover
+            object-center
+            animate-slide-fade
+            select-none
+          "
+        />
 
-      {/* Right arrow */}
-      <button
-        onClick={() => setCurrentSlide((currentSlide + 1) % slides.length)}
-        className="absolute right-10 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold transition opacity-0 group-hover:opacity-100"
-        aria-label="Next slide"
-      >
-        <ChevronRightIcon className="w-5 h-5 text-slate-900" />
-      </button>
+        {/* Clickable slide area */}
+        <Link
+          to={currentSlideData.link}
+          aria-label={`Open ${currentSlideData.alt}`}
+          className="absolute inset-0 z-[1] h-full w-full"
+        />
 
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10 group-hover:opacity-100">
-        {slides.map((slide, index) => (
-          <button
-            key={slide.id}
-            onClick={() => setCurrentSlide(index)}
-            aria-label={`Go to slide ${index + 1}`}
-            aria-pressed={index === currentSlide}
-            className={`w-2 h-2 rounded-full transition-all ${index === currentSlide ? "bg-white scale-125" : "bg-white/40"}`}
-          />
-        ))}
+        {/* Previous button */}
+        <button
+          type="button"
+          onClick={goToPreviousSlide}
+          aria-label="Previous slide"
+          className="
+            absolute
+            left-2
+            top-1/2
+            z-20
+            flex
+            h-9
+            w-9
+            -translate-y-1/2
+            items-center
+            justify-center
+            rounded-full
+            bg-white/90
+            text-slate-900
+            shadow-md
+            transition
+            hover:bg-white
+            hover:scale-105
+            focus:outline-none
+            focus:ring-2
+            focus:ring-white
+            sm:left-3
+            sm:h-10
+            sm:w-10
+            md:left-8
+            md:opacity-0
+            md:group-hover:opacity-100
+          "
+        >
+          <ChevronLeftIcon className="h-5 w-5" />
+        </button>
+
+        {/* Next button */}
+        <button
+          type="button"
+          onClick={goToNextSlide}
+          aria-label="Next slide"
+          className="
+            absolute
+            right-2
+            top-1/2
+            z-20
+            flex
+            h-9
+            w-9
+            -translate-y-1/2
+            items-center
+            justify-center
+            rounded-full
+            bg-white/90
+            text-slate-900
+            shadow-md
+            transition
+            hover:bg-white
+            hover:scale-105
+            focus:outline-none
+            focus:ring-2
+            focus:ring-white
+            sm:right-3
+            sm:h-10
+            sm:w-10
+            md:right-8
+            md:opacity-0
+            md:group-hover:opacity-100
+          "
+        >
+          <ChevronRightIcon className="h-5 w-5" />
+        </button>
+
+        {/* Carousel indicators */}
+        <div
+          className="
+            absolute
+            bottom-3
+            left-1/2
+            z-20
+            flex
+            -translate-x-1/2
+            items-center
+            gap-2
+            rounded-full
+            bg-black/10
+            px-3
+            py-2
+            backdrop-blur-sm
+            sm:bottom-4
+          "
+          aria-label="Slide controls"
+        >
+          {slides.map((slide, index) => {
+            const isActive = index === currentSlide
+
+            return (
+              <button
+                key={slide.id}
+                type="button"
+                onClick={() => goToSlide(index)}
+                aria-label={`Go to slide ${index + 1}`}
+                aria-current={isActive ? 'true' : undefined}
+                className={`
+                  h-2.5
+                  rounded-full
+                  transition-all
+                  duration-300
+                  focus:outline-none
+                  focus:ring-2
+                  focus:ring-white
+                  ${
+                    isActive
+                      ? 'w-7 bg-white'
+                      : 'w-2.5 bg-white/50 hover:bg-white/80'
+                  }
+                `}
+              />
+            )
+          })}
+        </div>
       </div>
-    </div>
+    </section>
   )
 }
 

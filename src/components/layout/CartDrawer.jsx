@@ -26,13 +26,13 @@ function CartDrawer({ isOpen, onClose }) {
 
       {/* Sliding drawer panel */}
       <div
-        className={`fixed top-0 right-0 h-full w-full max-w-md bg-white z-[100] shadow-2xl transition-transform duration-300 ${
+        className={`fixed top-0 right-0 h-full w-full max-w-sm bg-white z-[100] shadow-2xl transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : 'translate-x-full pointer-events-none'
         }`}
       >
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
+          <div className="flex items-center justify-between px-4 py-4 border-b border-gray-100 md:px-6 md:py-5">
             <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
               Cart
               <span className="bg-gray-100 text-sm font-semibold text-slate-700 w-6 h-6 rounded-full flex items-center justify-center">

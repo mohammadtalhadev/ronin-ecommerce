@@ -8,8 +8,8 @@ function AboutSection() {
   const fullText = shortText + " Whether you're a fitness enthusiast, a music lover, or someone who just wants to get tailored to you. Discover why Ronin is the number one choice for smart wearable & tech accessories in Pakistan."
 
   return (
-    <section data-reveal className="px-8 py-12 max-w-4xl mx-auto text-center">
-      <h2 className="text-xl font-bold text-slate-900 mb-4">
+    <section data-reveal className="px-3 py-6 sm:px-8 sm:py-12 max-w-4xl mx-auto text-center">
+      <h2 className="text-base font-bold text-slate-900 mb-3 sm:text-xl sm:mb-4">
         Ronin - A Globally Accredited Smart Wearable & Tech Accessories Brand
       </h2>
 

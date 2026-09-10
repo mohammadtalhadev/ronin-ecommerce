@@ -7,8 +7,8 @@ function Newsletter() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p className="text-white font-bold text-[15px] mb-4">Get exclusive offers and updates.</p>
-      <div className="flex items-center w-full max-w-[470px] min-w-0 h-[60px] md:h-[68px] border border-white/50 rounded-full pl-6 pr-1.5 focus-within:border-white transition-colors duration-300">
+      <p className="text-white font-bold text-sm mb-3 md:text-[15px] md:mb-4">Get exclusive offers and updates.</p>
+      <div className="flex items-center w-full max-w-[470px] min-w-0 h-[50px] border border-white/50 rounded-full pl-4 pr-1 focus-within:border-white transition-colors duration-300 md:h-[60px] md:pl-6 md:pr-1.5">
         <label htmlFor="newsletter-email" className="sr-only">
           Email address
         </label>

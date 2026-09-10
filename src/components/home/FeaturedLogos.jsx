@@ -2,12 +2,12 @@ import { featuredLogos } from '../../data/featuredLogos'
 
 function FeaturedLogos() {
   return (
-    <section data-reveal className="bg-gray-100 px-8 py-10">
-      <p className="text-center text-sm font-semibold tracking-widest text-gray-500 mb-6">
+    <section data-reveal className="bg-gray-100 px-3 py-6 sm:px-8 sm:py-10">
+      <p className="text-center text-xs font-semibold tracking-widest text-gray-500 mb-4 sm:text-sm sm:mb-6">
         FEATURED GLOBALLY
       </p>
 
-      <div className="flex items-center justify-center gap-10 flex-wrap">
+      <div className="flex items-center justify-center gap-6 flex-wrap sm:gap-10">
         {featuredLogos.map((brand) => (
           <img
             key={brand.id}

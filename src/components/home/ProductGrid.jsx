@@ -4,9 +4,9 @@ import { ArrowRightIcon } from '../ui/Icons'
 
 function ProductGrid({ title, products, linkTo = '/collections/all' }) {
   return (
-    <section className="px-8 py-10">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-slate-900">{title}</h2>
+    <section className="px-4 py-6 sm:px-8 sm:py-10">
+      <div className="flex items-center justify-between mb-4 sm:mb-6">
+        <h2 className="text-lg font-bold text-slate-900 sm:text-2xl">{title}</h2>
         {/* Real navigation link — was a dead <button> before */}
         <Link
           to={linkTo}

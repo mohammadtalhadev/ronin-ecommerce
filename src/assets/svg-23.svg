@@ -1,6 +1,0 @@
-<svg class="stars " viewBox="0 0 32 32" style="--empty-star-fill-color:transparent" role="presentation" xmlns="http://www.w3.org/2000/svg">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#star"/>
-          
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#star" fill="none" stroke="var(--star-fill-color)" stroke-width="var(--icon-stroke-width)"/>
-          
-        </svg>

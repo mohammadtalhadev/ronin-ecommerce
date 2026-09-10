@@ -76,8 +76,8 @@ function CheckoutPage() {
   // ── Order confirmation state ─────────────────────────────────────────
   if (placedOrder) {
     return (
-      <div className="flex min-h-[70vh] items-center justify-center px-4 py-20 bg-[#F0F0F0]">
-        <div className="w-full max-w-lg rounded-3xl bg-white p-8 text-center shadow-xl md:p-10">
+      <div className="flex min-h-[70vh] items-center justify-center px-3 py-16 bg-[#F0F0F0] md:px-4 md:py-20">
+        <div className="w-full max-w-lg rounded-2xl bg-white p-6 text-center shadow-xl md:rounded-3xl md:p-8 lg:p-10">
           <span className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-green-600">
             <CheckIcon className="w-8 h-8" />
           </span>
@@ -139,7 +139,7 @@ function CheckoutPage() {
               <Input label="Full name" name="fullName" value={address.fullName} onChange={handleAddressChange} error={errors.fullName} />
               <Input label="Phone" name="phone" type="tel" value={address.phone} onChange={handleAddressChange} error={errors.phone} />
               <Input label="Street address" name="street" placeholder="House #, street, area" value={address.street} onChange={handleAddressChange} error={errors.street} />
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <Input label="City" name="city" value={address.city} onChange={handleAddressChange} error={errors.city} />
                 <div>
                   <label className="mb-1.5 block text-sm font-medium text-slate-700">Province</label>

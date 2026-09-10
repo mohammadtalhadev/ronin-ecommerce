@@ -18,11 +18,11 @@ function ProductCard({ product }) {
   return (
     <Link
       to={`/products/${handle}`}
-      className="product-card relative mt-12 block cursor-pointer"
+      className="product-card relative mt-8 block cursor-pointer sm:mt-12"
     >
       {/* Shape layer - diagonal-cut card background, sits behind everything */}
       <div
-        className="absolute inset-0 z-0 "
+        className="absolute inset-0 z-0"
         style={{
           backgroundImage: `url("https://ronin.pk/cdn/shop/files/prod-shape.svg?v=1769464389")`,
           backgroundSize: '100% 100%',
@@ -31,17 +31,17 @@ function ProductCard({ product }) {
       />
 
       {/* Real content - sits on top of the shape, unaffected by its cut */}
-      <div className="relative z-10 flex flex-col h-full px-5 pb-5 pt-1">
+      <div className="relative z-10 flex flex-col h-full px-3 pb-3 pt-1 sm:px-5 sm:pb-5 sm:pt-1">
 
         {/* Ribbon badge - rotated pill, matches Ronin's real CSS */}
         {product.tag && (
           <span
-            className="absolute z-20 text-white text-[8px] font-bold leading-[8px] px-3 py-1.5 rounded-t-[15px] -rotate-90 origin-bottom-left whitespace-nowrap"
+            className="absolute z-20 text-white text-[7px] font-bold leading-[7px] px-2 py-1 rounded-t-[15px] -rotate-90 origin-bottom-left whitespace-nowrap sm:text-[8px] sm:px-3 sm:py-1.5"
             style={{
               bottom: '35%',
               left: '0px',
               backgroundImage: 'linear-gradient(90deg, rgb(3,177,230), rgb(3,84,205))',
-              fontSize: '8px',
+              fontSize: '7px',
               letterSpacing: '0.5px',
             }}
           >
@@ -58,7 +58,7 @@ function ProductCard({ product }) {
           }}
           aria-label={wishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
           aria-pressed={wishlisted}
-          className="absolute top-9 right-1 z-30 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-md transition hover:scale-110"
+          className="absolute top-7 right-1 z-30 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-md transition hover:scale-110 sm:top-9"
         >
           <HeartIcon
             filled={wishlisted}
@@ -67,22 +67,22 @@ function ProductCard({ product }) {
         </button>
 
         {/* Discount badge - top right */}
-        <span className="absolute top-0 right-0 z-20 bg-red-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
+        <span className="absolute top-0 right-0 z-20 bg-red-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full sm:text-[10px] sm:px-2.5 sm:py-1">
           {discountPercent}% OFF
         </span>
-        <div className="-mt-20 mb-3 flex justify-center dropshadow-md">
+        <div className="-mt-14 mb-2 flex justify-center dropshadow-md sm:-mt-20 sm:mb-3">
         {/* Product image */}
         <img
           src={product.image}
           alt={product.name}
           loading="lazy"
           decoding="async"
-          className="product-card-img w-auto h-50 object-contain mb-3 mt-4"
+          className="product-card-img w-auto h-36 object-contain sm:mb-3 sm:mt-4 sm:h-50"
         />
         </div>
         {/* Name + spec */}
-        <h3 className="text-sm font-bold text-slate-900 uppercase">{product.name}</h3>
-        <p className="text-xs text-gray-500 mt-1 line-clamp-2">{product.spec}</p>
+        <h3 className="text-xs font-bold text-slate-900 uppercase sm:text-sm">{product.name}</h3>
+        <p className="text-[11px] text-gray-500 mt-1 line-clamp-2 sm:text-xs">{product.spec}</p>
 
         {/* Rating + color swatches */}
         <div className="flex items-center gap-2 mt-2">
@@ -95,7 +95,7 @@ function ProductCard({ product }) {
               />
             ))}
           </div>
-          <span className="text-xs text-gray-400">{product.rating}</span>
+          <span className="text-[11px] text-gray-400 sm:text-xs">{product.rating}</span>
 
           {product.colors && (
             <div className="flex items-center gap-1.5 ml-auto">
@@ -110,19 +110,19 @@ function ProductCard({ product }) {
           )}
         </div>
 
-        <hr className="my-3 border-gray-100" />
+        <hr className="my-2 border-gray-100 sm:my-3" />
 
         {/* Price + Buy button - pinned to bottom via mt-auto */}
         <div className="flex items-center justify-between mt-auto">
           <div>
-            <span className="text-sm font-bold text-slate-900">
+            <span className="text-sm font-bold text-slate-900 sm:text-base">
               Rs.{product.price.toLocaleString()}
             </span>
-            <span className="text-xs text-gray-400 line-through ml-2">
+            <span className="text-[11px] text-gray-400 line-through ml-1 sm:text-xs sm:ml-2">
               Rs.{product.originalPrice.toLocaleString()}
             </span>
           </div>
-          <button className="bg-orange-500 text-white text-xs font-semibold px-4 py-2 rounded-full flex items-center gap-1.5 hover:bg-orange-600 transition relative z-30">
+          <button className="bg-orange-500 text-white text-[11px] font-semibold px-3 py-2 rounded-full flex items-center gap-1 hover:bg-orange-600 transition relative z-30 min-h-[44px] sm:text-xs sm:px-4">
             <CartIcon className="w-3.5 h-3.5" /> Buy Now
           </button>
         </div>

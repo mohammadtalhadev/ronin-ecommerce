@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 @theme {
   /* Colors */
@@ -132,36 +132,10 @@ body {
   overflow-x: hidden;
 }
 
-/* Hide the native scrollbar chrome on horizontally scrollable rows (e.g. the
-   product thumbnail strip) while keeping touch-swipe / wheel scroll working.
-   scrollbar-width: none covers Firefox + modern Chrome; the webkit rule covers
-   Safari / older Chrome builds. */
-.no-scrollbar {
-  scrollbar-width: none;
-}
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
 html {
   overflow-x: hidden;
 }
 
-
-
-.faq-chevron {
-  display: block;
-  width: 8px;
-  height: 8px;
-  border-right: 1px solid #000;
-  border-bottom: 1px solid #000;
-  transform: rotate(45deg);
-  transition: transform 0.3s ease;
-}
-
-details[open] .faq-chevron {
-  transform: rotate(225deg);
-}
 
 @keyframes marquee {
   from {
@@ -172,9 +146,6 @@ details[open] .faq-chevron {
   }
 }
 
-.animate-marquee {
-  animation: marquee 25s linear infinite;
-}
 .animate-marquee {
   animation: marquee 25s linear infinite;
 }
@@ -211,11 +182,11 @@ details[open] .faq-chevron {
 }
 
 /* ==========================================================================
-   MEGA MENU — one continuous hover region (navbar trigger + dropdown)
+   MEGA MENU â€” one continuous hover region (navbar trigger + dropdown)
    ========================================================================== */
 
 /* Invisible hover bridge that keeps the region between the navbar and the
-   mega menu part of the same hover surface. Purely interactive — it never
+   mega menu part of the same hover surface. Purely interactive â€” it never
    adds any visual spacing to the design. */
 .mega-menu-bridge {
   position: absolute;
@@ -264,7 +235,7 @@ details[open] .faq-chevron {
 }
 
 /* ==========================================================================
-   GLOBAL MOTION SYSTEM — one consistent, premium interaction language.
+   GLOBAL MOTION SYSTEM â€” one consistent, premium interaction language.
    Each rule only animates properties that genuinely improve understanding or
    affordance (transform / opacity / box-shadow / color). Nothing bounces,
    spins, or hijacks native scrolling.
@@ -279,7 +250,7 @@ details[open] .faq-chevron {
 }
 
 /* Lenis is the global scrolling foundation (see src/utils/scrollManager.js).
-   Keep CSS scroll-behavior from fighting its programmatic scrolls — the class
+   Keep CSS scroll-behavior from fighting its programmatic scrolls â€” the class
    below is applied to <html> by Lenis itself only while it is smooth-scrolling. */
 html.lenis.lenis-smooth {
   scroll-behavior: auto !important;
@@ -364,7 +335,7 @@ button:active {
 
 /* One-time staggered entrance for product cards inside a reveal group.
    Uses `backwards` fill so the stagger holds during the delay but the element
-   reverts to its natural state afterwards — keeping hover transforms intact. */
+   reverts to its natural state afterwards â€” keeping hover transforms intact. */
 .js [data-reveal-group].is-revealed > .product-card {
   animation: card-reveal-in 480ms var(--ease-out) backwards;
   animation-delay: var(--reveal-delay, 0ms);
@@ -519,7 +490,7 @@ button:active {
 }
 
 /* ==========================================================================
-   REDUCED MOTION — respect users who disable animation.
+   REDUCED MOTION â€” respect users who disable animation.
    Neutralizes durations/iterations globally without harming layout.
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
