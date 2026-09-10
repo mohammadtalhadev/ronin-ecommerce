@@ -9,7 +9,7 @@ import IconChargers from '../assets/Icon-chargers.svg'
 import IconCables from '../assets/Icon-cables.svg'
 import IconMic from '../assets/Mic.svg'
 import IconTracker from '../assets/Tracker.svg'
-import IconAccessories from '../assets/cables.svg'
+import IconAccessories from '../assets/Cables.svg'
 
 
 // Mega-menu thumbnails (representative local product renders)
