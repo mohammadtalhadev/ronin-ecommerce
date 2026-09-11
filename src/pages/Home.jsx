@@ -1,6 +1,7 @@
 import HeroCarousel from '../components/home/HeroCarousel'
 import PromoBanner from '../components/home/PromoBanner'
 import ProductGrid from '../components/home/ProductGrid'
+import ProductCarousel from '../components/home/ProductCarousel'
 import TrustBadges from '../components/home/TrustBadges'
 import CategoryBanners from '../components/home/CategoryBanners'
 import BrandAmbassadors from '../components/home/BrandAmbassadors'
@@ -16,7 +17,7 @@ function Home() {
     <div>
       <HeroCarousel />
       <PromoBanner />
-      <ProductGrid title="New Arrivals" products={newArrivals} />
+      <ProductCarousel title="New Arrivals" products={newArrivals} />
       <TrustBadges />
       <CategoryBanners />
       <BrandAmbassadors />

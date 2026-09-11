@@ -38,8 +38,8 @@ function ProductCard({ product }) {
           <span
             className="absolute z-20 text-white text-[7px] font-bold leading-[7px] px-2 py-1 rounded-t-[15px] -rotate-90 origin-bottom-left whitespace-nowrap sm:text-[8px] sm:px-3 sm:py-1.5"
             style={{
-              bottom: '35%',
-              left: '0px',
+              bottom: '30%',
+              left: '22px',
               backgroundImage: 'linear-gradient(90deg, rgb(3,177,230), rgb(3,84,205))',
               fontSize: '7px',
               letterSpacing: '0.5px',
@@ -70,7 +70,7 @@ function ProductCard({ product }) {
         <span className="absolute top-0 right-0 z-20 bg-red-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full sm:text-[10px] sm:px-2.5 sm:py-1">
           {discountPercent}% OFF
         </span>
-        <div className="-mt-14 mb-2 flex justify-center dropshadow-md sm:-mt-20 sm:mb-3">
+        <div className="-mt-14 mb-2 flex h-40 justify-center dropshadow-md sm:-mt-20 sm:mb-3 sm:h-52">
         {/* Product image */}
         <img
           src={product.image}
@@ -80,41 +80,45 @@ function ProductCard({ product }) {
           className="product-card-img w-auto h-36 object-contain sm:mb-3 sm:mt-4 sm:h-50"
         />
         </div>
-        {/* Name + spec */}
-        <h3 className="text-xs font-bold text-slate-900 uppercase sm:text-sm">{product.name}</h3>
-        <p className="text-[11px] text-gray-500 mt-1 line-clamp-2 sm:text-xs">{product.spec}</p>
+        <div className="pl-[20px]">
+          {/* Name + spec */}
+          <h3 className="h-10 text-xs font-bold text-slate-900 uppercase sm:text-sm">{product.name}</h3>
+          <p className="mt-1 h-8 line-clamp-2 text-[11px] text-gray-500 sm:text-xs">{product.spec}</p>
 
-        {/* Rating + color swatches */}
-        <div className="flex items-center gap-2 mt-2">
-          <div className="flex">
-            {totalStars.map((star) => (
-              <StarIcon
-                key={star}
-                filled={star <= fullStars}
-                className={`w-3 h-3 ${star <= fullStars ? 'text-yellow-400' : 'text-gray-300'}`}
-              />
-            ))}
-          </div>
-          <span className="text-[11px] text-gray-400 sm:text-xs">{product.rating}</span>
-
-          {product.colors && (
-            <div className="flex items-center gap-1.5 ml-auto">
-              {product.colors.map((color) => (
-                <span
-                  key={color}
-                  className="w-3.5 h-3.5 rounded-full border border-gray-200"
-                  style={{ backgroundColor: color }}
-                />
-              ))}
+          {/* Rating + color swatches */}
+          <div className="mt-2 flex items-center gap-2">
+            <div className="flex items-center gap-2">
+              <div className="flex">
+                {totalStars.map((star) => (
+                  <StarIcon
+                    key={star}
+                    filled={star <= fullStars}
+                    className={`w-5 h-5 ${star <= fullStars ? 'text-yellow-400' : 'text-gray-300'}`}
+                  />
+                ))}
+              </div>
+              <span className="text-[20px] text-gray-400 sm:text-xs">{product.rating}</span>
             </div>
-          )}
+
+            {product.colors && (
+              <div className="ml-10 flex items-center gap-1.5">
+                {product.colors.map((color) => (
+                  <span
+                    key={color}
+                    className="w-5 h-5 rounded-full border border-gray-200"
+                    style={{ backgroundColor: color }}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
 
-        <hr className="my-2 border-gray-100 sm:my-3" />
+          <hr className="mx-3 my-2 border-gray-300 sm:my-3" />
 
         {/* Price + Buy button - pinned to bottom via mt-auto */}
-        <div className="flex items-center justify-between mt-auto">
-          <div>
+        <div className="flex items-center gap-4 mt-auto">
+          <div className='pl-6'>
             <span className="text-sm font-bold text-slate-900 sm:text-base">
               Rs.{product.price.toLocaleString()}
             </span>
@@ -122,7 +126,7 @@ function ProductCard({ product }) {
               Rs.{product.originalPrice.toLocaleString()}
             </span>
           </div>
-          <button className="bg-orange-500 text-white text-[11px] font-semibold px-3 py-2 rounded-full flex items-center gap-1 hover:bg-orange-600 transition relative z-30 min-h-[44px] sm:text-xs sm:px-4">
+          <button className="bg-orange-500 text-white text-[9px] font-semibold px-3 py-2 rounded-full flex items-center gap-1 hover:bg-orange-600 transition relative z-30 min-h-[12px] sm:text-xs sm:px-4">
             <CartIcon className="w-3.5 h-3.5" /> Buy Now
           </button>
         </div>

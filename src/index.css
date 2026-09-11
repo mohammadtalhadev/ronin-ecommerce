@@ -333,6 +333,43 @@ button:active {
   transform: scale(1.04);
 }
 
+/* Native product carousel: one readable card and a peek on mobile, with
+   progressively denser cards at larger breakpoints. */
+.product-carousel__track {
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.product-carousel__item {
+  flex: 0 0 calc(100vw - 80px);
+  display: flex;
+  scroll-snap-align: start;
+}
+
+.product-carousel__item > .product-card {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .product-carousel__item {
+    flex-basis: 292px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-carousel__item {
+    flex-basis: 320px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .product-carousel__item {
+    flex-basis: 340px;
+  }
+}
+
 /* One-time staggered entrance for product cards inside a reveal group.
    Uses `backwards` fill so the stagger holds during the delay but the element
    reverts to its natural state afterwards â€” keeping hover transforms intact. */
@@ -502,4 +539,12 @@ button:active {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
