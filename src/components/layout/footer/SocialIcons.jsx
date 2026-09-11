@@ -12,15 +12,15 @@ const socials = [
 
 function SocialIcons() {
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-3">
       {socials.map((social) => (
         <a
           key={social.name}
           href="#"
           aria-label={social.name}
-          className="social-icon h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white/90 transition-all duration-300 hover:bg-white/25 hover:-translate-y-0.5"
+          className="social-icon h-9 w-9 rounded-full bg-white/15 flex items-center justify-center text-white/90 transition-all duration-300 hover:bg-white/30 hover:-translate-y-0.5"
         >
-          <img src={social.src} alt="" className="h-5 w-5 object-contain" />
+          <img src={social.src} alt="" className="h-4 w-4 object-contain" />
         </a>
       ))}
     </div>

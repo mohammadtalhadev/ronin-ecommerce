@@ -16,17 +16,19 @@ function Footer() {
         aria-label="Site footer"
       >
         <div className="group-block-content flex-col md:flex-row md:items-start">
+          {/* Main columns grid */}
           <div className="grid grid-cols-2 gap-6 w-full md:grid-cols-2 xl:grid-cols-4 md:gap-8 xl:gap-10">
             {footerColumns.map((section) => (
               <FooterColumn key={section.title} title={section.title} columns={section.columns} />
             ))}
 
+            {/* Right section — Logo, Social, Contact, Newsletter */}
             <div className="min-w-0 col-span-2 md:col-span-1">
               <Link to="/" aria-label="Ronin - Home" title="Ronin - Home" className="inline-block">
                 <img
                   src={RoninLogo}
                   alt="Ronin"
-                  className="w-[90px] h-auto object-contain mb-3 md:w-[160px] md:mb-4"
+                  className="w-[90px] h-auto object-contain mb-3 md:w-[140px] md:mb-4"
                 />
               </Link>
               <SocialIcons />
@@ -39,6 +41,7 @@ function Footer() {
         </div>
       </footer>
 
+      {/* Bottom bar */}
       <div className="bg-[var(--footer-bottom-bg, #F4F4F4)] border-t border-gray-200">
         <div className="mx-2 md:mx-6 px-4 md:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4 md:py-5">
           <p className="text-gray-500 text-xs text-center md:text-sm md:text-left">© 2026 Ronin. All Rights Reserved</p>
@@ -52,4 +55,3 @@ function Footer() {
 }
 
 export default Footer
-

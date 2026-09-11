@@ -27,14 +27,14 @@ function BestSellerBanner() {
   const activeBanner = promoBanners[currentIndex]
 
   return (
-    <section data-reveal className="px-3 py-6 sm:px-8 sm:py-10">
-      <div className="relative aspect-[16/10] sm:aspect-[16/7] rounded-3xl overflow-hidden group">
+    <section data-reveal className="px-6 py-6 ">
+      <div className="relative rounded-3xl overflow-hidden group">
         <img
           src={activeBanner.image}
           alt={`Promo ${currentIndex + 1}`}
           loading="lazy"
           decoding="async"
-          className="w-full h-full object-cover transition-opacity duration-500"
+          className="w-full h-full transition-opacity duration-500"
         />
 
         <Link
