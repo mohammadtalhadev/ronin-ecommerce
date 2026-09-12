@@ -16,14 +16,14 @@ function Footer() {
         aria-label="Site footer"
       >
         <div className="group-block-content flex-col md:flex-row md:items-start">
-          {/* Main columns grid */}
-          <div className="grid grid-cols-2 gap-6 w-full md:grid-cols-2 xl:grid-cols-4 md:gap-8 xl:gap-10">
+          {/* Main columns grid — single column accordion on mobile, 4-col grid on xl */}
+          <div className="flex flex-col gap-6 w-full md:grid md:grid-cols-2 xl:grid-cols-4 md:gap-8 xl:gap-10">
             {footerColumns.map((section) => (
               <FooterColumn key={section.title} title={section.title} columns={section.columns} />
             ))}
 
             {/* Right section — Logo, Social, Contact, Newsletter */}
-            <div className="min-w-0 col-span-2 md:col-span-1">
+            <div className="min-w-0 md:col-span-2 xl:col-span-1">
               <Link to="/" aria-label="Ronin - Home" title="Ronin - Home" className="inline-block">
                 <img
                   src={RoninLogo}

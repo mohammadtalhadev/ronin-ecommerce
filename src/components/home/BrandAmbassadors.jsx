@@ -8,7 +8,12 @@ function BrandAmbassadors() {
   return (
     <section data-reveal className="overflow-hidden">
       <div className="relative text-center mb-6 px-3 pt-6 sm:mb-10 sm:px-8 sm:pt-12">
-        <h2 className="font-script text-4xl leading-tight bg-gradient-to-r from-indigo-600 via-purple-600 to-red-500 bg-clip-text text-transparent sm:text-6xl md:text-7xl lg:text-[46px]">
+        {/* "Our" in smaller script */}
+        <span className="block font-script text-3xl sm:text-5xl md:text-6xl lg:text-[42px] bg-gradient-to-r from-indigo-600 via-purple-600 to-red-500 bg-clip-text text-transparent mb-0 leading-tight">
+          Our
+        </span>
+        {/* "Brand Ambassadors" in larger script */}
+        <h2 className="font-script text-5xl sm:text-7xl md:text-8xl lg:text-[68px] leading-tight bg-gradient-to-r from-indigo-600 via-purple-600 to-red-500 bg-clip-text text-transparent">
           Brand Ambassadors
         </h2>
       </div>

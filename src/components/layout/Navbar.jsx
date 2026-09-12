@@ -5,10 +5,11 @@ import { useAuth } from '../../hooks/useAuth'
 import NavIconWithMenu from './NavIconWithMenu'
 import CartDrawer from './CartDrawer'
 import UserMenu from './UserMenu'
+import MobileMenu from './MobileMenu'
 import { navCategories } from '../../data/navCategories'
 import RoninLogo from '../../assets/ronin-logo_alt_1-1.png'
 import IconAccessories from '../../assets/Icon-all.svg'
-import { SearchIcon, UserIcon, CartIcon, XMarkIcon } from '../ui/Icons'
+import { SearchIcon, UserIcon, CartIcon } from '../ui/Icons'
 
 const glassStyle = {
   background: 'rgba(13, 13, 13, 0.1)',
@@ -110,22 +111,18 @@ function Navbar() {
             aria-expanded={isMobileMenuOpen}
             className="shrink-0 rounded-full p-1.5 transition hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/70 lg:hidden"
           >
-            {isMobileMenuOpen ? (
-              <XMarkIcon className="h-6 w-6" />
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                className="h-6 w-6"
-                aria-hidden="true"
-              >
-                <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              </svg>
-             )}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              className="h-6 w-6"
+              aria-hidden="true"
+            >
+              <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
           </button>
 
           {/* Ronin logo */}
@@ -215,51 +212,8 @@ function Navbar() {
           </div>
         </nav>
 
-        {/* Mobile menu */}
-        {isMobileMenuOpen && (
-          <div className="absolute left-3 right-3 top-full z-[1100] mt-3 md:hidden">
-            <div
-              className="animate-menu-in max-h-[65vh] overflow-y-auto rounded-2xl border border-white/15 p-3 backdrop-blur-2xl"
-              style={glassStyle}
-              data-lenis-prevent
-            >
-              {/* Shop All */}
-              <Link
-                to="/collections/all"
-                onClick={closeMobileMenu}
-                className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold text-white transition hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-white/70"
-              >
-                <img
-                  src={IconAccessories}
-                  alt=""
-                  className="h-5 w-6 object-contain"
-                />
-
-                <span>Shop All</span>
-              </Link>
-
-              <div className="my-2 border-t border-white/15" />
-
-              {/* Mobile category links */}
-              <div className="grid grid-cols-2 gap-1">
-                {navCategories.map((category) => (
-                  <Link
-                    key={category.label}
-                    to={`/collections/${category.collection || 'all'}`}
-                    onClick={closeMobileMenu}
-                    className="flex items-center gap-2.5 rounded-xl px-3 py-3 text-sm font-medium text-white transition hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-white/70"
-                  >
-                    <span className="text-lg leading-none">
-                      {category.icon}
-                    </span>
-
-                    <span>{category.label}</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
+        {/* Mobile menu — full-screen overlay */}
+        <MobileMenu isOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
 
         {/* Invisible hover bridge for desktop mega menu */}
         <div
