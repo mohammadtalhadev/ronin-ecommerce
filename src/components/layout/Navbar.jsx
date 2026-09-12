@@ -6,6 +6,7 @@ import NavIconWithMenu from './NavIconWithMenu'
 import CartDrawer from './CartDrawer'
 import UserMenu from './UserMenu'
 import MobileMenu from './MobileMenu'
+import SearchOverlay from './SearchOverlay'
 import { navCategories } from '../../data/navCategories'
 import RoninLogo from '../../assets/ronin-logo_alt_1-1.png'
 import IconAccessories from '../../assets/Icon-all.svg'
@@ -24,6 +25,7 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   const closeTimerRef = useRef(null)
 
@@ -175,6 +177,7 @@ function Navbar() {
             <button
               type="button"
               aria-label="Search"
+              onClick={() => setIsSearchOpen(true)}
               className="flex h-8 w-8 items-center justify-center rounded-full transition hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/70"
             >
               <SearchIcon className="h-5 w-5" />
@@ -296,6 +299,9 @@ function Navbar() {
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
       />
+
+      {/* Search overlay */}
+      <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
   )
 }

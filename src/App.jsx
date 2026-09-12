@@ -20,6 +20,7 @@ import WishlistPage from './pages/account/WishlistPage'
 import AddressesPage from './pages/account/AddressesPage'
 import SecurityPage from './pages/account/SecurityPage'
 import NotFoundPage from './pages/NotFoundPage'
+import TrackOrderPage from './pages/TrackOrderPage'
 
 function App() {
   const location = useLocation()
@@ -46,6 +47,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/collections/:collectionName" element={<CollectionPage />} />
             <Route path="/products/:handle" element={<ProductPage />} />
+            <Route path="/pages/track-order" element={<TrackOrderPage />} />
             <Route
               path="/login"
               element={

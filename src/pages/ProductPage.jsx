@@ -178,19 +178,6 @@ function ProductPage() {
             <span className="text-sm text-gray-400 line-through">Rs.{product.originalPrice.toLocaleString()}</span>
           </div>
 
-          {/* Trust badges inline */}
-          <div className="flex items-center gap-4 w-full py-2 border-b border-gray-100">
-            {trustBadges.map((badge) => (
-              <div key={badge.label[0]} className="flex items-center gap-1.5">
-                <badge.icon className="w-4 h-4 text-gray-400 shrink-0" />
-                <span className="leading-tight">
-                  <span className="block text-[11px] font-semibold text-slate-800">{badge.label[0]}</span>
-                  <span className="block text-[10px] text-gray-400">{badge.label[1]}</span>
-                </span>
-              </div>
-            ))}
-          </div>
-
           {/* Color selection */}
           {product.colors && (
             <div className="w-full">
@@ -293,6 +280,19 @@ function ProductPage() {
             <button className="flex-1 bg-orange-500 text-white text-sm font-bold py-3.5 rounded-full hover:bg-orange-600 transition">
               Buy Now
             </button>
+          </div>
+
+          {/* Trust badges */}
+          <div className="flex items-center justify-between w-full pt-3 border-t border-gray-100">
+            {trustBadges.map((badge) => (
+              <div key={badge.label[0]} className="flex items-center gap-1.5">
+                <badge.icon className="w-4 h-4 text-gray-400 shrink-0" />
+                <span className="leading-tight">
+                  <span className="block text-[11px] font-semibold text-slate-800">{badge.label[0]}</span>
+                  <span className="block text-[10px] text-gray-400">{badge.label[1]}</span>
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
